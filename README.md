@@ -1,6 +1,6 @@
 
 <center>
- <img src="./md/md//workspaces/Repositorio-de-la-materia-DADM-2024B/md/md/img" alt="itgam banner">
+ <img src="./md/img//workspaces/Repositorio-de-la-materia-DADM-2024B/md/img/ITGAMBanner.png" alt="itgam banner">
 </center>
 # Shopping Cart 💸 Project
 
