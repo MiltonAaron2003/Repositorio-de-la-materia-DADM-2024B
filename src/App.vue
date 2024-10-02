@@ -20,7 +20,10 @@ const saveItem=()=>{
 
 const newItem = ref("");
 const newItemHighPriority = ref(false);
-
+const editing=ref(true);
+const activateEdition=(activate)=>{
+  editing.value =activate;
+}
 </script>
 
 <template>
@@ -28,6 +31,11 @@ const newItemHighPriority = ref(false);
    <i class="material-icons shopping-cart-icon">local_mall</i> 
     {{ header }} 
   </h1>
+  <button v-if="editing"class="btn" @click="activateEdition(false)">Cancelar</button>
+  <button v-else class="btn btn-primary" @click="activateEdition(true)">Agregar articulo</button>
+  <form class="add-item form"
+  v-if="editing"
+  v-on:submit.prevent></form>
   <form v-on:submit.prevent="saveItem()">
   <input v-model="newItem" type="text" placeholder="Agregar un articulo" />
   <!--Caja de seleccion de Prioridad-->
@@ -49,6 +57,7 @@ const newItemHighPriority = ref(false);
   <ul>
     <li v-for="item in items" :key="item.id"> ✔️ {{  item.label }} </li>
   </ul>
+  <p v-if="items.length ===0">🥀 NO HAY ELEMENTOS EN LA LISTA 🥀</p>
 </template>
 
 <style scoped>
