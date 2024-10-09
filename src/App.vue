@@ -4,11 +4,11 @@ import { ref } from 'vue';
 //item
 const header = ref('App lista de compras');
 const items = ref([
-  {id:'0', label: '10 bolillos'},
-  {id:'1', label: '1 pastel'},
-  {id:'2', label: '1 kilo de jamon'},
+  {id:'0', label: '1 kilo de jamon'},
+  {id:'1', label: '1 paquete de papel'},
+  {id:'2', label: '2 cajas de Norr'},
   {id:'3', label: 'Nutella'},
-  {id:'4', label: 'Pan tostado'}
+  {id:'4', label: 'Pan molido'}
 ]);
 //item-model
 const saveItem=()=> { 'saveItem' 
@@ -37,7 +37,7 @@ const activateEdition =(activate) => {
   <button v-if="editing" class="btn" @click="activateEdition(false)">Cancelar</button>
   <button v-else class="btn btn-primary" @click="activateEdition(true)">Agregar articulo </button>
   </div>
-  <a v-bind:href="'https://'+newItem" target="_blank">{{newItem == ""?"😎Link":newItem}}</a>
+  <a v-bind:href="'https://www.Google.com/' + newItem" target="_blank">{{newItem == ""?"😎Link":newItem}}</a>
   <!--Agrupando entradas de usuario-->
   <form 
   class="add-item form"
@@ -52,7 +52,9 @@ const activateEdition =(activate) => {
     Alta Prioridad 
   </label>
   <!--Boton-->
-  <button class="btn btn-primary">
+  <button 
+  :disabled="newItem.length ==0"
+  class="btn btn-primary">
     Salvar Articulo
   </button>
   </form>
@@ -62,9 +64,9 @@ const activateEdition =(activate) => {
   {{ newItemHighPriority }}
   <!-- Lista -->
   <ul>
-    <li v-for="item in items" :key="item.id"> 🎃 {{  item.label }} </li>
+    <li v-for="item in items" :key="item.id"> ✅ {{  item.label }} </li>
   </ul>
-  <p v-if=" items.length === 0"> 🌸 NO HAY ELEMENTOS EN LA LISTA🌸</p>
+  <p v-if=" items.length === 0"> ✅ NO HAY ELEMENTOS EN LA LISTA✅</p>
 </template>
 
 <style scoped>
