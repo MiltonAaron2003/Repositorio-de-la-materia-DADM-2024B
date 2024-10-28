@@ -30,7 +30,7 @@ const saveItem = () => {
     label: newItem.value,
     highPriority: newItemHighPriority.value
   });
-  // Reiniciendo la entrada de texto
+  // Se reinicia la caja de texto
   newItem.value = "";
   newItemHighPriority.value = false;
 };
@@ -38,6 +38,12 @@ const saveItem = () => {
 const togglePurchased = (item) => {
   item.purchased = !item.purchased;
 };
+// Propiedad computada
+const characterCount = computed(() => {
+  return newItem.value.length;
+});
+// Creando propiedad computada que invierte items de la lista
+const reversedItems = computed(() => [...items.value].reverse());
 </script>
 
 <template>
@@ -60,6 +66,10 @@ const togglePurchased = (item) => {
       class="btn btn-primary">
       Salvar Articulo
     </button>
+     <!-- Contador -->
+  <p class="counter">
+    {{characterCount}} / 200
+  </p>
   </form>
   <!-- Lista -->
   <ul>
