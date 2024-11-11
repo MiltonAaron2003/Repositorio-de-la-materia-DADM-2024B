@@ -3,6 +3,10 @@
 import planPickerItem from './PlanPickerItem.vue';
   import { ref } from 'vue';
   const plans = ref(['El cafetero', 'El chelero', 'El intelectual']);
+  const selectPlan=(name)=>{
+    console.log{name};
+  
+  };
 </script>
 
 <template>
@@ -10,7 +14,8 @@ import planPickerItem from './PlanPickerItem.vue';
       <PlanPickerItem
       v-for="plan in plans" 
       :key="plan"
-      :name="plan" />
+      :name="plan" 
+      @select="selectPlan"/>
     </div>
 </template>
 
