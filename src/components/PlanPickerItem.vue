@@ -1,5 +1,8 @@
 <template>
-  <div @click="selectPlan" class="plan">
+  <div @click="selectPlan" 
+  class="plan"
+  :class="{selected: isSelected}"
+  >
     <div class="description">
       <span class="title">
         {{ name }} {{ isSelected ? '🌟' : '' }}
@@ -39,7 +42,7 @@ emit('select', props.name);
 //Creando una propiedad computada
 //para saber si el plan ha seleccionado
 const isSelected=computed(()=>{
-  return props.name === props.selectedPlan;
+  return props.name === props.selectPlan;
 });
 
 </script>

@@ -21,7 +21,7 @@
       @select="selectPlan"
       :select-plan="selectedPlan" />
     </div>
-    <p>{{ selectedPlan }}</p>
+  
 </template>
 
 <style scoped>
