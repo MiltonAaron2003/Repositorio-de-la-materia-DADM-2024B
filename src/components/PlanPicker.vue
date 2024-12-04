@@ -1,6 +1,5 @@
 <script setup>
   import PlanPickerItem from './PlanPickerItem.vue';
-
   import { ref, onMounted, onUnmounted } from 'vue';
   // Creando una referencia reactiva
   // para almacenar el plan seleccionado
